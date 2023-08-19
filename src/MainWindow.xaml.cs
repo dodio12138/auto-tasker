@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.InteropServices;
+using System.Windows.Interop;
+using System.Windows.Threading;
 
 namespace src
 {
@@ -37,6 +39,7 @@ namespace src
         private List<Instruction> instructions = new List<Instruction>();
 
         private bool isLoop;
+        private bool isFrozen = false;
 
         enum InstructionType
         {
@@ -66,6 +69,12 @@ namespace src
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            // 启动一个定时器，用于显示鼠标坐标
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(100); // 更新频率
+            timer.Tick += UpdateMousePosition;
+            timer.Start();
         }
 
         private async void ClickButton_Click(object sender, RoutedEventArgs e)
@@ -123,6 +132,18 @@ namespace src
             MoveMouseToPosition(instruction.X, instruction.Y);
             await Task.Delay(instruction.Delay);
             SimulateMouseClick(0);
+        }
+
+        private void UpdateMousePosition(object sender, EventArgs e)
+        {
+            if (!isFrozen)
+            {
+                // 获取全局鼠标坐标
+                System.Drawing.Point mousePosition = System.Windows.Forms.Cursor.Position;
+
+                // 更新TextBlock中的坐标显示
+                mousePositionText.Text = $"鼠标坐标: ({mousePosition.X}, {mousePosition.Y})";
+            }
         }
 
         private void MoveMouseToPosition(int x, int y)

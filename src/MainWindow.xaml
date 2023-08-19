@@ -30,6 +30,6 @@
         <Button x:Name="clickButton_stop" Content="停止点击" Margin="267,339,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="30" Click="ClickButton_stop"/>
         <Label Content="命令格式：&#xA;x坐标.y坐标.延迟时间;" HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top" Height="40" Width="196"/>
         <Image HorizontalAlignment="Left" Height="121" Margin="510,314,0,0" VerticalAlignment="Top" Width="110" Source="/TU1.png"/>
-
+        <TextBlock x:Name="mousePositionText" Text="鼠标坐标: (0,0)" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Background="#FFF0F0F0"/>
     </Grid>
 </Window>
