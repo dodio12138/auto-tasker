@@ -72,7 +72,7 @@ namespace src
 
             // 启动一个定时器，用于显示鼠标坐标
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(100); // 更新频率
+            timer.Interval = TimeSpan.FromMilliseconds(50); // 更新频率
             timer.Tick += UpdateMousePosition;
             timer.Start();
         }
