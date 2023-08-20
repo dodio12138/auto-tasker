@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Loop" xml:space="preserve">
-    <value>LoopTime</value>
+    <value>循环次数</value>
   </data>
   <data name="MousePos" xml:space="preserve">
-    <value>Pos: </value>
+    <value>鼠标坐标：</value>
   </data>
   <data name="StartButton" xml:space="preserve">
-    <value>Start</value>
+    <value>开始运行</value>
   </data>
   <data name="StopButton" xml:space="preserve">
-    <value>Stop</value>
+    <value>停止运行</value>
   </data>
   <data name="Text" xml:space="preserve">
-    <value>Command format for each step:
-x coordinate.y coordinate. Delay time(ms);</value>
+    <value>每一步的命令格式：
+x坐标.y坐标.延迟时间(ms);</value>
   </data>
 </root>

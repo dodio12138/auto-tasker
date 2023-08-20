@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:loc="clr-namespace:src.Properties"
         xmlns:local="clr-namespace:src"
         mc:Ignorable="d"
         Title="AutoTasker" Height="450" Width="600" ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="NoResize" Icon="/tuStatic.png" SizeToContent="WidthAndHeight">
@@ -11,8 +12,8 @@
         <TextBox Name="coordinatesTextBox" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="357" Height="275" TextChanged="coordinatesTextBox_TextChanged" FontSize="16" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1,1,1,1" Padding="10,10,10,10"/>
 
         <!-- 点击按钮 -->
-        <Button Name="clickButton" Content="开始点击" Margin="10,339,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="30" Click="ClickButton_Click"/>
-        <Label Content="循环次数：" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top">
+        <Button Name="clickButton" Content="{x:Static loc:Resources.StartButton}" Margin="10,339,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="30" Click="ClickButton_Click"/>
+        <Label Content="{x:Static loc:Resources.Loop}" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top">
             <Label.ToolTip>
                 <ToolTip Content="无限循环设置值为-1" />
             </Label.ToolTip>
@@ -28,9 +29,10 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Button x:Name="clickButton_stop" Content="停止点击" Margin="267,339,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="30" Click="ClickButton_stop"/>
-        <Label Content="命令格式：&#xA;x坐标.y坐标.延迟时间;" HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top" Height="40" Width="196"/>
+        <Label Content="{x:Static loc:Resources.Text}" HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top" Height="40" Width="196"/>
         <Image HorizontalAlignment="Left" Height="121" Margin="510,314,0,0" VerticalAlignment="Top" Width="110" Source="/TU1.png"/>
-        <TextBlock x:Name="mousePositionText" Text="鼠标坐标: (0,0)" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,0,5" Background="#FFF0F0F0"/>
+        <TextBlock x:Name="mousePosition" Text="{x:Static loc:Resources.MousePos}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,0,5" Background="#FFF0F0F0"/>
+        <TextBlock x:Name="mousePositionText" Text="(0,0)" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="60,0,0,5" Background="#FFF0F0F0"/>
         <Rectangle HorizontalAlignment="Center" Height="25" Margin="0,410,0,0" VerticalAlignment="Top" Width="622" Fill="#FFF0F0F0" Panel.ZIndex="-1"/>
     </Grid>
 </Window>

@@ -16,6 +16,9 @@ using System.Windows.Shapes;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using System.Windows.Threading;
+using System.Globalization;
+using System.Resources;
+using System.Threading;
 
 namespace src
 {
@@ -142,7 +145,7 @@ namespace src
                 System.Drawing.Point mousePosition = System.Windows.Forms.Cursor.Position;
 
                 // 更新TextBlock中的坐标显示
-                mousePositionText.Text = $"鼠标坐标: ({mousePosition.X}, {mousePosition.Y})";
+                mousePositionText.Text = $"({mousePosition.X}, {mousePosition.Y})";
             }
         }
 
@@ -172,6 +175,14 @@ namespace src
         private void coordinatesTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void SwitchLanguage_Click(object sender, RoutedEventArgs e)
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == "zh-CN")
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+            else
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-CN");
         }
     }
 }
